@@ -19,9 +19,8 @@ namespace H1GPDag1
             WriteLine("2. Gradskonvertering (mellem celcius og fahrenheit)");
             WriteLine("3. Afslut" + Environment.NewLine);
             Write("Indtast et tal fra menuen for at vælge: ");
-            var choice = HandleInputConversion(ReadLine());
 
-            switch (choice)
+            switch (HandleInputConversion(ReadLine()))
             {
                 case 1:
                     DistanceConverter();
@@ -37,6 +36,7 @@ namespace H1GPDag1
 
         public static void DistanceConverter()
         {
+            Clear();
             WriteLine("Her vil du kunne vælge afstande at omregne");
             FinishOption();
         }
@@ -57,6 +57,7 @@ namespace H1GPDag1
                 int celcius = HandleInputConversion(ReadLine());
 
                 WriteLine($"{celcius} grader celcius er {(float)celcius * 9 / 5 + 32} grader fahrenheit");
+                FinishOption();
             }
             else if (HandleInputConversion(ReadLine()) == 2)
             {
@@ -65,6 +66,7 @@ namespace H1GPDag1
                 int fahrenheit = HandleInputConversion(ReadLine());
 
                 WriteLine($"{fahrenheit} grader fahrenheit er {((float)fahrenheit - 32) * 5 / 9} grader celcius");
+                FinishOption();
             }
         }
 
@@ -94,6 +96,7 @@ namespace H1GPDag1
 
         private static void Quit()
         {
+            Clear();
             WriteLine("Tak for at have anvendt TEC konvertering. Farvel!");
             Thread.Sleep(3000);
             Environment.Exit(0);
